@@ -1,0 +1,113 @@
+*{
+    font-weight: bold;
+}
+.header {
+    background-color: #006600;
+    padding: 15px;
+    text-align: center;
+}
+h1{
+    color: white;
+    
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    font-size: 30px;
+}
+h2{
+    margin-top: 0;
+    font-size: 25px;
+}
+h3{
+    font-size: 20px;
+}
+p{
+    font-size: 15px;
+    font-weight: normal;
+}
+label{
+    font-weight: normal;
+}
+footer{
+    display: block;
+    background-color: green;
+    position: relative;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+ 
+.parentdiv {
+    display: flex;
+    flex: 1;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+ 
+.transactions {
+    flex: 1;
+ 
+}
+  
+.Statistiken {
+    flex: 2;
+    overflow: auto;
+}
+
+table {
+    margin-left: auto;
+    width: 100%;
+     
+}
+.Link:hover{
+    text-decoration: underline;
+}
+.Link{
+    color: white;
+    font-size: 20px;
+}
+button{
+    background-color: #008200; /* Farbe des Headers anpassen */
+    color: #ffffff; /* Textfarbe für Kontrast */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover {
+    background-color: #00b300; /* Dunklere Farbe für den Hover-Effekt */
+}
+.accountname {
+    color: black; /* Standardfarbe für vorhandenen Account */
+}
+.error {
+    color: red; /* Farbe für fehlenden Account */
+}
+
+.header-tabs {
+    display: flex;
+    padding: 10px;
+}
+  
+.tab {
+    background-color: #008200; /* Farbe des Headers anpassen */
+    color: #ffffff; /* Textfarbe für Kontrast */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.tab:hover {
+    background-color: #00b300; /* Dunklere Farbe für den Hover-Effekt */
+}
+  
+.content-area {
+    margin-top: 10px;
+}

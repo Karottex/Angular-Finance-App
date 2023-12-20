@@ -1,0 +1,29 @@
+
+  <!-- registrieren.html -->
+<div>
+  <h1 class="header">Registrieren</h1>
+    <form (submit)="onRegister()">
+      <div>
+        <label for="vorname">Vorname:</label>
+        <input type="text" name="vorname" [(ngModel)]="vorname" required>
+      </div>
+      <div>
+        <label for="nachname">Nachname:</label>
+        <input type="text" name="nachname" [(ngModel)]="nachname" required>
+      </div>
+      <div>
+        <label for="username">Nutzername:</label>
+        <input type="text" name="username" [(ngModel)]="username" required>
+      </div>
+      <div>
+        <label for="password">Passwort:</label>
+        <input type="password" name="password" [(ngModel)]="password" required>
+      </div>
+      <div>
+        <label for="passwortWiederholen">Passwort wiederholen:</label>
+        <input type="password" name="passwortWiederholen" [(ngModel)]="passwortWiederholen" required>
+      </div>
+      <button type="submit">Registrieren</button>
+      <p>Bereits einen Account?<a (click)="navigateToLogin()" class="Link"> Login</a></p>
+   </form>
+</div>

@@ -1,0 +1,9 @@
+{"login":"user2","firstname":"Lisa","lastname":"Meier","passwordHash":"879e0a6c3793565633ce410c15da9c6d0ab417dd627274e1e28e577a3f247ef6","accountNr":"1000002","_id":"N0lN1H2S0O7xI7wi"}
+{"login":"Snickers","firstname":"David","lastname":"Stoni","passwordHash":"548310c34afeb288a7c0809a73066aa7e31f15f80b2e2c094536a91a5a618c6c","accountNr":"1000004","_id":"iLxZeWoY7cEBpZj4"}
+{"login":"user1","firstname":"Bob","lastname":"Müller","passwordHash":"879e0a6c3793565633ce410c15da9c6d0ab417dd627274e1e28e577a3f247ef6","accountNr":"1000001","_id":"xrrRqQpOVMK1PmFX"}
+{"login":"user3","firstname":"Kevin","lastname":"Schmidt","passwordHash":"879e0a6c3793565633ce410c15da9c6d0ab417dd627274e1e28e577a3f247ef6","accountNr":"1000003","_id":"zGNU5CJG01Od8W7Y"}
+{"$$indexCreated":{"fieldName":"login","unique":true,"sparse":true}}
+{"$$indexCreated":{"fieldName":"accountNr","unique":true,"sparse":true}}
+{"login":"user13","firstname":"Hetteder gern","lastname":"dawd","passwordHash":"879e0a6c3793565633ce410c15da9c6d0ab417dd627274e1e28e577a3f247ef6","accountNr":"1000005","_id":"LBcgo8lQ5FM9vU9m"}
+{"login":"user133","firstname":"Hetteder gern","lastname":"The","passwordHash":"879e0a6c3793565633ce410c15da9c6d0ab417dd627274e1e28e577a3f247ef6","accountNr":"1000008","_id":"sBVinaqFPqhxJh3t"}
+{"login":"user132","firstname":"Andrin","lastname":"Egli","passwordHash":"879e0a6c3793565633ce410c15da9c6d0ab417dd627274e1e28e577a3f247ef6","accountNr":"1000009","_id":"JL9n6djpT1tzDyug"}

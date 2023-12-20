@@ -1,0 +1,120 @@
+<div class="container">
+  <div class="header">
+    <h1>Praxisprojekt M323</h1>
+    <h2><a (click)="navigateToLogin()" class="Link">Abmelden</a></h2>
+  </div>
+
+  <div class="parentdiv">
+    <div class="transactions">
+      <form *ngIf="!confirmationDisplay" (submit)="onTransfer()">
+      <h2>Neue Transaktion</h2>
+      <div *ngIf="currentBalance">
+        <h3>From:</h3>
+        <p>Owner ID: {{ currentBalance.ownerId }}</p>
+        <p>Kontonummer: {{ currentBalance.accountNr }}</p>
+        <p>Betrag: {{ currentBalance.amount }}</p>
+      </div>
+      <div>
+        <h3><label for="to">To:</label><br></h3>
+        <input type="number" [(ngModel)]="to" name="to" required (ngModelChange)="onToChange()">
+        <p [ngClass]="{'accountname': true, 'error': !targetUsername}">{{ targetUsername || 'Account existiert nicht!' }}</p>
+      </div><br>
+      <div>
+        <h3><label for="amount">Amount [CHF]:</label></h3><br>
+        <input type="number" name="amount" [(ngModel)]="amount" required>
+      </div><br>
+      <button type="submit">Überweisen</button>
+    </form>
+    <div *ngIf="confirmationDisplay">
+      <p>{{ confirmationMessage }}</p>
+      <button (click)="newTransfer()">Neue Überweisung</button>
+    </div>
+  </div>
+  <div class="Statistiken">
+    <div class="header-tabs">
+      <div class="tab" (click)="selectTab('movements')">Bewegungen</div>
+      <div class="tab" (click)="selectTab('balanceHistory')">Saldoverlauf</div>
+      <div class="tab" (click)="selectTab('categoryExpense')">Ausgabe nach Kategorie</div>
+      <div class="tab" (click)="selectTab('budgetPlan')">Budgetplan</div>
+    </div>
+    <div class="content-area">
+      <!-- Hier wird der Inhalt je nach ausgewähltem Tab dynamisch geladen -->
+      <div *ngIf="selectedTab === 'movements'">
+        <table mat-table [dataSource]="dataSource" matSort #tbSort="matSort" (matSortChange)="applySort($event)">
+      
+          <!-- Source Column -->
+          <ng-container matColumnDef="Source">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Source </th>
+            <td mat-cell *matCellDef="let element"> {{element.from}} </td>
+          </ng-container>
+        
+          <!-- Target Column -->
+          <ng-container matColumnDef="Target">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Target </th>
+            <td mat-cell *matCellDef="let element"> {{element.target}} </td>
+          </ng-container>
+        
+          <!-- Amount Column -->
+          <ng-container matColumnDef="Amount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.amount}} </td>
+          </ng-container>
+  
+            <!-- Balance Column -->
+          <ng-container matColumnDef="Balance">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Balance </th>
+            <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+        </table>
+        <div class="paginator-container">
+          <mat-paginator #paginator [pageSize]="7" [pageSizeOptions]="[7, 50, 100, 200]" showFirstLastButtons=""></mat-paginator>
+        </div>
+      </div>
+      <div *ngIf="selectedTab === 'balanceHistory'">
+        <ngx-charts-line-chart
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="data"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          [autoScale]="autoScale"
+          >
+        </ngx-charts-line-chart>
+      </div>
+      <div *ngIf="selectedTab === 'categoryExpense'">
+        <ngx-charts-pie-chart
+          [results]="pieChartData"
+          [view]="view"
+          [legend]="showLegend"
+          [labels]="true"
+          [explodeSlices]="false">
+        </ngx-charts-pie-chart>
+      </div>
+      <div *ngIf="selectedTab === 'budgetPlan'">
+        <ngx-charts-bar-vertical-2d
+          [view]="view"
+          [scheme]="colorScheme"
+          [results]="verticalBarChartData"
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [legend]="showLegend"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel">
+        </ngx-charts-bar-vertical-2d>
+      </div>
+    </div>
+  </div>
+</div>

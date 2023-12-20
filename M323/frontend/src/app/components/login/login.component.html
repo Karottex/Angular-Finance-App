@@ -1,0 +1,13 @@
+<h1 class="header">Login</h1>
+<form (submit)="onLogin()">
+  <div>
+    <label for="username">Nutzername:</label>
+    <input type="text" name="username" [(ngModel)]="username" required>
+  </div>
+  <div>
+    <label for="password">Passwort:</label>
+    <input type="password" name="password" [(ngModel)]="password" required>
+  </div>
+  <button type="submit">Login</button>
+  <p>Noch keinen Account? <a (click)="navigateToRegistrieren()" class="Link">Registrieren</a></p>
+</form>
